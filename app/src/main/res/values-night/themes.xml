@@ -1,0 +1,35 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Theme.MNEReceipt" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/colorPrimaryNight</item>
+        <item name="colorPrimaryVariant">@color/purple_500</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_200</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <item name="colorItemSetted">@color/item_setted_night</item>
+        <item name="colorItemNotSetted">@color/item_not_setted_night</item>
+
+        <item name="colorGoodExist">@color/good_exist_background_night</item>
+
+        <item name="greenColorShopRow">@color/greenColorShopRow_night</item>
+
+    </style>
+
+    <style name="ToolbarStyle" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="colorControlNormal">@color/white</item>
+    </style>
+
+    <style name="ToolbarTheme">
+        <item name="theme">@style/ToolbarStyle</item>
+        <item name="android:background">@color/colorPrimaryNight</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+    </style>
+
+</resources>

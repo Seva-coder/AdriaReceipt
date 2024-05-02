@@ -1,0 +1,21 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical">
+
+    <mne.seva.mnereceipt.presentation.EmptyRecycleView
+        android:id="@+id/recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/emptyTextLabel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/empty_goods_list_label"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:visibility="gone" />
+
+</LinearLayout>

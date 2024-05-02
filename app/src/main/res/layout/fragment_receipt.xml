@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/add_goods_to_db_receipt_frag_label"
+        android:textSize="18sp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/edit"
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/rename_shop_btn"
+        android:padding="1dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/label"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <TextView
+        android:id="@+id/shopName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/shop"
+        android:textSize="20sp"
+        android:layout_margin="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/date_time_receipt"
+        android:textSize="20sp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shopName" />
+
+    <TextView
+        android:id="@+id/total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/total_receipt"
+        android:textSize="20sp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/date" />
+
+    <ImageView
+        android:id="@+id/cashImage"
+        android:layout_marginStart="10dp"
+        android:visibility="visible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/cash"
+        app:layout_constraintStart_toEndOf="@id/total"
+        app:layout_constraintTop_toTopOf="@id/total"
+        app:layout_constraintBottom_toBottomOf="@id/total"
+        android:contentDescription="@string/spell_cash_description" />
+
+    <ImageView
+        android:id="@+id/cardImage"
+        android:layout_marginStart="10dp"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/card"
+        app:layout_constraintStart_toEndOf="@id/total"
+        app:layout_constraintTop_toTopOf="@id/total"
+        app:layout_constraintBottom_toBottomOf="@id/total"
+        android:contentDescription="@string/spell_card_description" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/spacer"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@color/black"
+        app:layout_constraintTop_toBottomOf="@+id/total" />
+
+    <ListView
+        android:id="@+id/goodList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="visible"
+        app:layout_constraintTop_toBottomOf="@+id/spacer"
+        app:layout_constraintBottom_toTopOf="@+id/ok" >
+    </ListView>
+
+    <Button
+        android:id="@+id/ok"
+        android:enabled="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="2dp"
+        android:text="@string/add_receipt_btn_default"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

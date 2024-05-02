@@ -1,0 +1,26 @@
+name:
+AdriaReceipt
+
+
+
+short:
+Vođenje statistike rashoda pomoću skeniranja čekova u Crnoj Gori
+
+
+
+long:
+Aplikacija je namenjena za vođenje statistike rashoda pomoću skeniranja QR-kodova prodavničkih čekova. Ovo vam omogućava da uštedite, na primer, kupujući u prodavnicama gde je roba jeftinija. QR-kod možete da skenirate i pomoću aplikacije treće strane (na primer, Binary Eye). Nakon skeniranja čekova, preuzima se njegova elektronska verzija. Podržani jezici: ruski, srpski. Reklama u potpunosti nedostaje. Ima tamnu temu.
+
+Aplikacija ima nekoliko funkcija koje vam pomažu da razumete svoje rashode:
+
+1. Spisak sa rashodima za svaku robu u određenom periodu vremena. Možete da odaberete koje grupe da se uzmu u obzir za prikaz i izračun.
+2. Usporedba cene robe u raznim prodavnicama, sa naznakom minimalne cene. Za usporedbu se uzimaju poslednje cene u svakoj prodavnici.
+3. Kružne dijagrami za vizuelno prikazivanje rashoda po grupama u periodu vremena. Kod velikog broja grupa, ekran se može pomerati gore-dole.
+4. Dijagrami rashoda po vremenu. Svaki stubac je mali vremenski period (dan/nedelja/mesec), a njegova visina zavisi od rashoda u tom periodu.
+5. Spisak računa - možete da vidite sačuvane čekove.
+6. Takođe postoje i pomoćne funkcije za uređivanje robe, grupa, prodavnica.
+
+Pri dodavanju čekova, potrebno je za svaki novi proizvod ukazati njegovo ime - za razumljivije prikazivanje, izabrati grupu ili dodati novu - za mogućnost procene rashoda po grupama, jedinicu mere. Već dodati proizvodi biće osvetljeni zelenom bojom. Ako se proizvodima sa različitim nazivima u čekovima (na primer, "krompir" i "mladi krompir") ukaže isto ime - u tabeli rashoda će biti objedinjeni i prikazani u jednom redu.
+
+U ovom trenutku aplikacija podržava samo čekove iz prodavnica Crne Gore, a planirano je dodavanje i drugih zemalja.
+O pronađenim greškama u aplikaciji i greškama prevoda pišite na e-mail (naveden u Google Play-u), ili u Telegram-ćet po vezi iz pomoći u aplikaciji.

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.costsActivity.Cost7dayFrag"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/days30res"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:text="@string/costs_title_fragment" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/spacer0"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@color/black" />
+
+    <mne.seva.mnereceipt.presentation.EmptyRecycleView
+        android:id="@+id/recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/emptyTextLabel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/no_cost_label"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:visibility="gone" />
+
+</LinearLayout>

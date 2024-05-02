@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".presentation.graphicActivity.GraphicActivity">
+
+        <TextView
+            android:id="@+id/textView7days"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/diagramview_label_costs_by_7_days"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <mne.seva.mnereceipt.presentation.graphicActivity.CircleDiagramView
+            android:id="@+id/diagram7days"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textColor="?android:textColorPrimary"
+            app:layout_constraintTop_toBottomOf="@id/textView7days" />
+        <TextView
+            android:id="@+id/textView30days"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/diagramview_label_costs_by_30_days"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/diagram7days" />
+
+        <mne.seva.mnereceipt.presentation.graphicActivity.CircleDiagramView
+            android:id="@+id/diagram30days"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textColor="?android:textColorPrimary"
+            app:layout_constraintTop_toBottomOf="@+id/textView30days" />
+
+        <TextView
+            android:id="@+id/textViewNdays"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/diagramview_label_calc_by_period"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/diagram30days" />
+
+        <mne.seva.mnereceipt.presentation.graphicActivity.CircleDiagramView
+            android:id="@+id/diagramNdays"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textColor="?android:textColorPrimary"
+            app:layout_constraintTop_toBottomOf="@+id/textViewNdays" />
+
+        <Button
+            android:id="@+id/btnFrom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="@string/since_time_btn"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/diagramNdays" />
+
+        <Button
+            android:id="@+id/btnTo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:text="@string/to_date_btn"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/diagramNdays" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

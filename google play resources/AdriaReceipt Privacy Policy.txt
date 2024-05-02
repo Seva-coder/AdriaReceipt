@@ -1,0 +1,49 @@
+Privacy Policy for "AdriaReceipt" application
+
+Effective Date: March 4, 2024
+
+Introduction
+
+This Privacy Policy describes how AriaReceipt app collects, uses, and discloses your personal information when you use our mobile application.
+
+Information We Collect
+
+We do not collect any personal information from you directly through the App. All data is stored locally on your device and is not transmitted to us.
+
+Permissions We Request
+
+The App requests the following permissions:
+
+    Internet: This permission is used to download receipt data within the App.
+    Camera: This permission is used only to scan QR codes on receipts. Scanned data is processed locally on your device and not transmitted to us.
+
+Use of Information
+
+We do not use any personal information collected through the App. Data collected through the app, including scanned QR codes and extracted receipt information, is stored locally on your device and is used only for the functionality of the App.
+
+Data Sharing
+
+We do not share any personal information with third parties.
+
+Data Retention
+
+Data collected through the App, including scanned QR codes and extracted receipt information, is stored locally on your device and can be deleted by you at any time.
+
+Security
+
+We take reasonable security measures to protect your data from unauthorized access, disclosure, alteration, or destruction. However, no internet-based or electronic data transmission is completely secure. As such, we cannot guarantee the absolute security of your data.
+
+Your Choices
+
+You can control the information collected by the App by managing your device permissions. You can disable access to the internet or camera through your device settings. You can also delete any data stored within the App at any time.
+
+Changes to This Privacy Policy
+
+We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page. You are advised to review this Privacy Policy periodically for any changes.
+
+Contact Us
+
+If you have any questions about this Privacy Policy, please contact us:
+
+    By email: nikita.sevast@gmail.com
+    By public telegram chat: https://t.me/+ULg-0l0nlgcyOGRi

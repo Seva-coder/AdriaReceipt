@@ -1,0 +1,11 @@
+v 1.0 (4)
+- initial release
+
+
+v1.1 (5)
+- added deleting feature in manual receipt delete
+- ZXing lib changed to google ML Kit
+
+
+v1.1 (6)
+- added settings for default names (from receipt), group and unit

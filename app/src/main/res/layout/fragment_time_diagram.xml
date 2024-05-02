@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/textViewDays"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:text="@string/label_costs_grouped_by_days"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/barViewDays"/>
+
+    <mne.seva.mnereceipt.presentation.graphicActivity.BarViewDiagram
+        android:id="@+id/barViewDays"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintVertical_weight="1"
+        app:layout_constraintTop_toBottomOf="@id/textViewDays"
+        app:layout_constraintBottom_toTopOf="@+id/textViewWeeks"/>
+
+
+
+    <TextView
+        android:id="@+id/textViewWeeks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:text="@string/label_costs_grouped_by_weeks"
+        app:layout_constraintTop_toBottomOf="@+id/barViewDays"
+        app:layout_constraintBottom_toTopOf="@+id/barViewWeeks"/>
+
+    <mne.seva.mnereceipt.presentation.graphicActivity.BarViewDiagram
+        android:id="@+id/barViewWeeks"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintVertical_weight="1"
+        app:layout_constraintTop_toBottomOf="@id/textViewWeeks"
+        app:layout_constraintBottom_toTopOf="@+id/textViewMonth"/>
+
+
+
+    <TextView
+        android:id="@+id/textViewMonth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:text="@string/label_costs_grouped_by_month"
+        app:layout_constraintTop_toBottomOf="@+id/barViewWeeks"
+        app:layout_constraintBottom_toTopOf="@id/barViewMonth"/>
+
+    <mne.seva.mnereceipt.presentation.graphicActivity.BarViewDiagram
+        android:id="@+id/barViewMonth"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintVertical_weight="1"
+        app:layout_constraintTop_toBottomOf="@id/textViewMonth"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

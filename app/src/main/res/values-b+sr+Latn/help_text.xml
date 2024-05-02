@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="text"><![CDATA[
+
+<big>
+
+<p>
+Aplikacija je dizajnirana da održava statistiku troškova skeniranjem QR-kodova računa.
+Nakon skeniranja čeka, njegova elektronska verzija se preuzima sa sajta poreske službe.
+Zatim se vrši pretraga među proizvodima, a prethodno dodati su označeni zelenom bojom.
+Pretraga se vrši po bar kodu ili prema nazivu proizvoda na računu. <br><br>
+
+Za nove proizvode morate navesti:<br>
+<b>&#8226; njegov naziv</b> - koristiće se za prikaz proizvoda (prilikom kucanja biće predložena slična postojeća imena). Proizvodi sa istim nazivima su grupisani.<br>
+<b>&#8226; grupu</b> - koristi se za obračun troškova po grupama i u grafovima<br>
+<b>&#8226; mernu jedinicu</b> - za zgodan prikaz.<br>
+<br><br>
+Nakon što sačuvate račune, možete pogledati troškove po grupama za različite vremenske periode, uporediti cene robe u različitim prodavnicama i pogledati grafikone odnosa troškova po grupama i tokom vremena.<br>
+Možete dodati priznanicu bez QR-koda - ručno popunite obavezna polja.<br><br>
+
+Sačuvani računi se ne šalju nigde i čuvaju se samo na uređaju korisnika.<br><br>
+
+O otkrivenim greškama, greškama u prevodu (srpski nije maternji jezik) i idejama za nove funkcije pišite na telegram ili e-mail.<br><br>
+
+Diskusija o aplikaciji u Telegramu -
+ <a href="https://t.me/+ULg-0l0nlgcyOGRi">https://t.me/+ULg-0l0nlgcyOGRi</a><br><br>
+
+E-mail:<br><br>
+<a href = "mailto: 	nikita.sevast@gmail.com">nikita.sevast@gmail.com</a><br><br>
+
+Autor - <b>Sevastjanov Nikita</b>
+
+</p>
+
+</big>
+
+]]></string>
+</resources>
