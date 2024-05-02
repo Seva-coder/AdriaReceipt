@@ -17,3 +17,5 @@ local.properties
 /keys/
 /apks/
 /ReceiptKeyStore
+/app/build/
+/app/release/
