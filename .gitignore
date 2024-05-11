@@ -19,3 +19,4 @@ local.properties
 /ReceiptKeyStore
 /app/build/
 /app/release/
+*.aab
