@@ -5,9 +5,11 @@ import android.content.Context
 import android.content.Intent
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
+import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -32,12 +34,17 @@ import mne.seva.mnereceipt.presentation.manualAdd.ManualReceiptAddActivity
 import mne.seva.mnereceipt.presentation.scanActivity.ScanActivity
 import mne.seva.mnereceipt.presentation.settingsActivity.SettingsActivity
 import mne.seva.mnereceipt.presentation.viewReceiptsAct.ViewReceiptsActivity
+import java.time.LocalDateTime
+import java.time.ZoneOffset
+import java.time.format.DateTimeFormatter
 
 
 class MainActivity : AppCompatActivity() {
 
     private val viewModel: MainViewModel by viewModels {
-        MainViewModelFactory((application as ReceiptApplication).repository)
+        MainViewModelFactory(repository = (application as ReceiptApplication).repository,
+                            fileRepository = (application as ReceiptApplication).fileRepository
+        )
     }
 
     private val resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
@@ -53,6 +60,13 @@ class MainActivity : AppCompatActivity() {
                     defaultGroup = defaultGroup,
                     defaultUnit = defaultUnit)
             }
+        }
+    }
+
+    private val receiptsSafLauncher =
+        registerForActivityResult(ActivityResultContracts.CreateDocument("text/csv")) { uri: Uri? ->
+        uri?.let {
+            viewModel.saveReceiptsToFile(uri)
         }
     }
 
@@ -88,7 +102,17 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, AboutActivity::class.java)
             startActivity(intent)
         }
+        if (item.itemId == R.id.action_export) {
+            val exportDialog = ExportDialog()
+            exportDialog.show(supportFragmentManager, "exportDialog")
+        }
         return true
+    }
+
+    fun exportReceiptsCsv() {
+        val currentTime = LocalDateTime.now(ZoneOffset.systemDefault())
+        val timeStr = currentTime.format(DateTimeFormatter.ofPattern("d MMM"))
+        receiptsSafLauncher.launch(getString(R.string.export_receipts_filename, timeStr))
     }
 
     private lateinit var binding: ActivityMainBinding
@@ -107,6 +131,17 @@ class MainActivity : AppCompatActivity() {
                         showLoadingDialog()
                     } else {
                         hideLoadingDialog()
+                    }
+                }
+            }
+        }
+
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                viewModel.exported.collectLatest {
+                    if (it) {
+                        Toast.makeText(this@MainActivity,
+                            getString(R.string.export_successful_toast), Toast.LENGTH_LONG).show()
                     }
                 }
             }

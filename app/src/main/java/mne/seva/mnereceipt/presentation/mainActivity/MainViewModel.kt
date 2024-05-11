@@ -1,19 +1,24 @@
 package mne.seva.mnereceipt.presentation.mainActivity
 
+import android.net.Uri
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
+import mne.seva.mnereceipt.data.storage.FileRepository
 import mne.seva.mnereceipt.domain.exceptions.ReceiptAlreadyExistException
 import mne.seva.mnereceipt.domain.models.DownloadedReceipt
 import mne.seva.mnereceipt.domain.models.ReceiptNumber
+import mne.seva.mnereceipt.domain.usecases.ArrayToCsvString
+import mne.seva.mnereceipt.domain.usecases.ExportReceiptsCsv
 import mne.seva.mnereceipt.domain.usecases.IsReceiptExistUseCase
-import mne.seva.mnereceipt.domain.usecases.loaders.LoadMNEReceipt
 import mne.seva.mnereceipt.domain.usecases.ReceiptProvider
 import mne.seva.mnereceipt.domain.usecases.ReceiptProviderByLink
+import mne.seva.mnereceipt.domain.usecases.loaders.LoadMNEReceipt
 import mne.seva.mnereceipt.domain.usecases.loaders.ReceiptLoader
 import org.json.JSONException
 import java.io.IOException
@@ -29,7 +34,10 @@ enum class ErrorType {
 
 class MainViewModel(private val isReceiptExistUseCase : IsReceiptExistUseCase,
                     private val loadMNEReceipt: LoadMNEReceipt,
-                    private val receiptProviderByLink: ReceiptProviderByLink
+                    private val receiptProviderByLink: ReceiptProviderByLink,
+                    private val exportReceiptsCsv: ExportReceiptsCsv,
+                    private val arrayToCsvString: ArrayToCsvString,
+                    private val fileRepository: FileRepository
 ) : ViewModel() {
 
     private val _sharedFlowError = MutableSharedFlow<ErrorType>(replay = 0, onBufferOverflow = BufferOverflow.DROP_OLDEST, extraBufferCapacity = 1)
@@ -40,6 +48,9 @@ class MainViewModel(private val isReceiptExistUseCase : IsReceiptExistUseCase,
 
     private val _startLoading = MutableSharedFlow<Boolean>(replay = 0, onBufferOverflow = BufferOverflow.DROP_OLDEST, extraBufferCapacity = 1)
     val startLoading = _startLoading.asSharedFlow()
+
+    private val _exported = MutableSharedFlow<Boolean>(replay = 0, onBufferOverflow = BufferOverflow.DROP_OLDEST, extraBufferCapacity = 1)
+    val exported = _exported.asSharedFlow()
 
     lateinit var receipt: DownloadedReceipt
     private lateinit var downloader: ReceiptLoader
@@ -86,6 +97,15 @@ class MainViewModel(private val isReceiptExistUseCase : IsReceiptExistUseCase,
                 _startAddActivity.emit(true)
                 _startLoading.emit(false)
             }
+        }
+    }
+
+    fun saveReceiptsToFile(uri: Uri) {
+        viewModelScope.launch(Dispatchers.IO) {
+            val receipts = exportReceiptsCsv.execute()
+            val text = arrayToCsvString.execute(receipts)
+            fileRepository.writeTextToFileUri(uri, text)
+            _exported.emit(true)
         }
     }
 

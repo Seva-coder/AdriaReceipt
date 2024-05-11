@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import mne.seva.mnereceipt.R
-import mne.seva.mnereceipt.data.storage.entities.ReceiptWithShop
+import mne.seva.mnereceipt.domain.models.ReceiptWithShop
 import mne.seva.mnereceipt.databinding.ReceiptRowBinding
 import java.time.Instant
 import java.time.ZoneOffset

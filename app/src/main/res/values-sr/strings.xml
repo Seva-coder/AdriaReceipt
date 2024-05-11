@@ -137,4 +137,11 @@
     <string name="setting_unit_summary">Jedinica mere za nove proizvode će automatski biti \'kg\'</string>
     <string name="setting_category_title">Koristiti podrazumevane vrednosti</string>
 
+    <!-- Export menu -->
+    <string name="export_toolbar_title">Izvoz podataka</string>
+    <string name="rb_receipts_export">Izvoz tabele sa računima (.csv)</string>
+    <string name="rb_monthly_export">Izvoz tabele sa troškovima po mesecima (.csv)</string>
+    <string name="export_receipts_filename">Spisak računa %1$s.csv</string>
+    <string name="export_successful_toast">Podaci su sačuvani</string>
+
 </resources>

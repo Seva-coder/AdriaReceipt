@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/action_export"
+        android:icon="@drawable/export"
+        app:showAsAction="always"
+        android:title="@string/export_toolbar_title"/>
+
+    <item
         android:id="@+id/action_help"
         android:icon="@drawable/help"
         app:showAsAction="always"

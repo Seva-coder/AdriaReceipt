@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/radioGroup"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+
+    <RadioButton
+        android:id="@+id/export_receipts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/rb_receipts_export" />
+
+    <RadioButton
+        android:id="@+id/export_by_month"
+        android:enabled="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/rb_monthly_export" />
+
+</RadioGroup>

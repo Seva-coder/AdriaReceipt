@@ -16,7 +16,7 @@ import mne.seva.mnereceipt.data.storage.entities.Group
 import mne.seva.mnereceipt.data.storage.entities.NewName
 import mne.seva.mnereceipt.data.storage.entities.Receipt
 import mne.seva.mnereceipt.data.storage.entities.ReceiptGoodCrossRef
-import mne.seva.mnereceipt.data.storage.entities.ReceiptWithShop
+import mne.seva.mnereceipt.domain.models.ReceiptWithShop
 import mne.seva.mnereceipt.data.storage.entities.Shop
 import mne.seva.mnereceipt.domain.models.CostByPeriod
 import mne.seva.mnereceipt.domain.models.ReceiptNumber
@@ -93,6 +93,11 @@ class DbReceiptStorage(private val shopDao: ShopDao,
     @WorkerThread
     fun getAllReceiptsWithShop(): LiveData<List<ReceiptWithShop>> {
         return receiptDao.getAllReceipts()
+    }
+
+    @WorkerThread
+    suspend fun exportAllReceipts(): List<ReceiptWithShop> {
+        return receiptDao.exportAllReceipts()
     }
 
     @WorkerThread

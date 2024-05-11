@@ -6,6 +6,7 @@ import mne.seva.mnereceipt.domain.models.Group
 import mne.seva.mnereceipt.domain.models.GroupCost
 import mne.seva.mnereceipt.domain.models.NameWithPriceId
 import mne.seva.mnereceipt.domain.models.ReceiptNumber
+import mne.seva.mnereceipt.domain.models.ReceiptWithShop
 import mne.seva.mnereceipt.domain.models.ShopWithPrice
 
 
@@ -69,5 +70,7 @@ interface ReceiptRepository {
     suspend fun getCostsListByWeeks(): List<CostByPeriod>
 
     suspend fun getCostsListByMonths(): List<CostByPeriod>
+
+    suspend fun exportAllReceipts(): List<ReceiptWithShop>
 
 }

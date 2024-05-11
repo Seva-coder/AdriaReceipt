@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.Flow
 import mne.seva.mnereceipt.data.storage.DbReceiptStorage
 import mne.seva.mnereceipt.data.storage.entities.GoodsInGroup
 import mne.seva.mnereceipt.data.storage.entities.ReceiptGoodCrossRef
-import mne.seva.mnereceipt.data.storage.entities.ReceiptWithShop
+import mne.seva.mnereceipt.domain.models.ReceiptWithShop
 import mne.seva.mnereceipt.domain.models.CostByPeriod
 
 import mne.seva.mnereceipt.domain.models.DownloadedReceipt
@@ -130,6 +130,10 @@ class ReceiptRepositoryImpl(private val receiptStorage: DbReceiptStorage, privat
             currencyType = receiptWithShop.currencyType,
             country = "MNE"
         )
+    }
+
+    override suspend fun exportAllReceipts(): List<ReceiptWithShop> {
+        return receiptStorage.exportAllReceipts()
     }
 
     override suspend fun getCostBetweenDays(setGroups: Set<Long>, dayFrom: Long, dayTo: Long): Double {

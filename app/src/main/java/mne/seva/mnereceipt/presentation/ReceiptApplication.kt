@@ -6,6 +6,7 @@ import kotlinx.coroutines.SupervisorJob
 import mne.seva.mnereceipt.data.repository.NetworkRequests
 import mne.seva.mnereceipt.data.repository.ReceiptRepositoryImpl
 import mne.seva.mnereceipt.data.storage.DbReceiptStorage
+import mne.seva.mnereceipt.data.storage.FileRepositoryImpl
 import mne.seva.mnereceipt.data.storage.ReceiptDatabase
 
 class ReceiptApplication : Application() {
@@ -24,4 +25,6 @@ class ReceiptApplication : Application() {
             receiptGoodCrossRefDao = database.receiptGoodCrossRefDao()),
         network = NetworkRequests()
     )}
+
+    val fileRepository by lazy { FileRepositoryImpl(applicationContext) }
 }
