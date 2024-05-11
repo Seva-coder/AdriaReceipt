@@ -7,5 +7,9 @@ v1.1 (5)
 - ZXing lib changed to google ML Kit
 
 
-v1.1 (6)
+v1.2 (6)
 - added settings for default names (from receipt), group and unit
+
+
+v1.3 (7)
+- added feature for export receipts in .csv
