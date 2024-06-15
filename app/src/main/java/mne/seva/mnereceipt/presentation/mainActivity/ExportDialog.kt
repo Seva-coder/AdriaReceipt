@@ -33,7 +33,7 @@ class ExportDialog : DialogFragment() {
                     if (binding.radioGroup.checkedRadioButtonId != -1) {
                         when(binding.radioGroup.checkedRadioButtonId) {
                             R.id.export_receipts -> (activity as? MainActivity)?.exportReceiptsCsv()
-                            //R.id.export_by_month -> (activity as? MainActivity)?.exportReceiptsCsv()
+                            R.id.export_by_month -> (activity as? MainActivity)?.exportGroupsByMonth()
                         }
                     }
                 }

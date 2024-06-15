@@ -18,6 +18,7 @@ import mne.seva.mnereceipt.domain.models.NewGood
 import mne.seva.mnereceipt.domain.models.ReceiptNumber
 import mne.seva.mnereceipt.domain.models.Shop
 import mne.seva.mnereceipt.domain.models.ShopWithPrice
+import mne.seva.mnereceipt.domain.models.SpentPeriod
 import mne.seva.mnereceipt.domain.repository.ReceiptRepository
 
 
@@ -134,6 +135,22 @@ class ReceiptRepositoryImpl(private val receiptStorage: DbReceiptStorage, privat
 
     override suspend fun exportAllReceipts(): List<ReceiptWithShop> {
         return receiptStorage.exportAllReceipts()
+    }
+
+    override suspend fun getMinReceiptTime(): String? {
+        return receiptStorage.getMinReceiptTime()
+    }
+
+    override suspend fun getMaxReceiptTime(): String? {
+        return receiptStorage.getMaxReceiptTime()
+    }
+
+    override suspend fun getAllGroupList(): List<Group> {
+        return receiptStorage.getAllGroupList()
+    }
+
+    override suspend fun exportGroupSpends(groupId: Long): List<SpentPeriod> {
+        return receiptStorage.exportGroupSpends(groupId)
     }
 
     override suspend fun getCostBetweenDays(setGroups: Set<Long>, dayFrom: Long, dayTo: Long): Double {

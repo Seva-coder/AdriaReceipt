@@ -70,6 +70,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private val groupsSafLauncher =
+        registerForActivityResult(ActivityResultContracts.CreateDocument("text/csv")) { uri: Uri? ->
+            uri?.let {
+                viewModel.saveGroupsToFile(uri)
+            }
+        }
+
     private fun showLoadingDialog() {
         val ft = supportFragmentManager.beginTransaction()
         val frg = supportFragmentManager.findFragmentByTag(ReceiptLoadingDialog.TAG)
@@ -112,7 +119,17 @@ class MainActivity : AppCompatActivity() {
     fun exportReceiptsCsv() {
         val currentTime = LocalDateTime.now(ZoneOffset.systemDefault())
         val timeStr = currentTime.format(DateTimeFormatter.ofPattern("d MMM"))
-        receiptsSafLauncher.launch(getString(R.string.export_receipts_filename, timeStr))
+        receiptsSafLauncher.launch(
+            getString(R.string.export_receipts_filename, timeStr.replace(".", ""))
+        )
+    }
+
+    fun exportGroupsByMonth() {
+        val currentTime = LocalDateTime.now(ZoneOffset.systemDefault())
+        val timeStr = currentTime.format(DateTimeFormatter.ofPattern("d MMM"))
+        groupsSafLauncher.launch(
+            getString(R.string.export_groups_by_month_filename, timeStr.replace(".", ""))
+        )
     }
 
     private lateinit var binding: ActivityMainBinding

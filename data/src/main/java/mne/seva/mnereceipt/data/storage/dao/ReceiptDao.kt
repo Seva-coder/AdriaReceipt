@@ -35,4 +35,10 @@ interface ReceiptDao {
     @Query("SELECT strftime('%Y-%m', date_time, 'unixepoch', 'localtime') AS text, SUM(total) AS cost FROM receipts GROUP BY text ORDER BY date_time ASC")
     suspend fun getCostsListByMonths(): List<CostByPeriod>
 
+    @Query("SELECT strftime('%Y-%m', min(date_time), 'unixepoch', 'localtime') FROM receipts")
+    suspend fun getMinReceiptTime(): String?
+
+    @Query("SELECT strftime('%Y-%m', max(date_time), 'unixepoch', 'localtime') FROM receipts")
+    suspend fun getMaxReceiptTime(): String?
+
 }

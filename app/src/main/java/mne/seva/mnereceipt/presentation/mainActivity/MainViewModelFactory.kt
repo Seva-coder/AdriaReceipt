@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import mne.seva.mnereceipt.data.repository.ReceiptRepositoryImpl
 import mne.seva.mnereceipt.data.storage.FileRepositoryImpl
 import mne.seva.mnereceipt.domain.usecases.ArrayToCsvString
+import mne.seva.mnereceipt.domain.usecases.ExportGroupSpends
 import mne.seva.mnereceipt.domain.usecases.ExportReceiptsCsv
 import mne.seva.mnereceipt.domain.usecases.IsReceiptExistUseCase
 import mne.seva.mnereceipt.domain.usecases.loaders.LoadMNEReceipt
@@ -23,6 +24,7 @@ class MainViewModelFactory(private val repository: ReceiptRepositoryImpl, privat
                             loadMNEReceipt = loadMNEReceipt,
                             receiptProviderByLink = ReceiptProviderByLink(),
                             exportReceiptsCsv = ExportReceiptsCsv(repository),
+                            exportGroupSpends = ExportGroupSpends(repository),
                             arrayToCsvString = ArrayToCsvString(),
                             fileRepository = fileRepository
         ) as T

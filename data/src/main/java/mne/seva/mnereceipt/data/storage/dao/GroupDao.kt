@@ -8,6 +8,7 @@ import androidx.room.Query
 import kotlinx.coroutines.flow.Flow
 import mne.seva.mnereceipt.data.storage.entities.Group
 import mne.seva.mnereceipt.domain.models.GroupCost
+import mne.seva.mnereceipt.domain.models.SpentPeriod
 
 @Dao
 interface GroupDao {
@@ -16,6 +17,13 @@ interface GroupDao {
 
     @Query("SELECT group_id AS id, name AS name FROM groups")
     fun getAllGroup(): Flow<List<mne.seva.mnereceipt.domain.models.Group>>
+
+    @Query("SELECT strftime('%Y-%m', date_time, 'unixepoch', 'localtime') AS time, " +
+            "SUM(goods.price * ReceiptGoodCrossRef.quantity) AS spent FROM " +
+            "goods JOIN ReceiptGoodCrossRef ON goods.good_id = ReceiptGoodCrossRef.good_id JOIN " +
+            "receipts ON ReceiptGoodCrossRef.receipt_id = receipts.receipt_id " +
+            "WHERE goods.group_id = :groupId GROUP BY time")
+    suspend fun exportGroupSpends(groupId: Long): List<SpentPeriod>
 
     @Query("SELECT group_id FROM groups WHERE name = :name LIMIT 1")
     suspend fun getGroupId(name: String): Long?

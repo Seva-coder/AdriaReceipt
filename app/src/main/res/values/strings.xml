@@ -148,6 +148,7 @@
     <string name="rb_receipts_export">Экспорт таблицы с чеками (.csv)</string>
     <string name="rb_monthly_export">Экспорт таблицы с расходами по месяцам (.csv)</string>
     <string name="export_receipts_filename">Список чеков %1$s.csv</string>
+    <string name="export_groups_by_month_filename">Расходы по месяцам %1$s.csv</string>
     <string name="export_successful_toast">Данные сохранены</string>
 
 </resources>

@@ -13,3 +13,7 @@ v1.2 (6)
 
 v1.3 (7)
 - added feature for export receipts in .csv
+
+
+v1.4 (8)
+- added export of expenses by groups by month in .csv

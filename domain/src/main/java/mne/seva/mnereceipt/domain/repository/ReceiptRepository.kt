@@ -8,6 +8,7 @@ import mne.seva.mnereceipt.domain.models.NameWithPriceId
 import mne.seva.mnereceipt.domain.models.ReceiptNumber
 import mne.seva.mnereceipt.domain.models.ReceiptWithShop
 import mne.seva.mnereceipt.domain.models.ShopWithPrice
+import mne.seva.mnereceipt.domain.models.SpentPeriod
 
 
 interface ReceiptRepository {
@@ -72,5 +73,13 @@ interface ReceiptRepository {
     suspend fun getCostsListByMonths(): List<CostByPeriod>
 
     suspend fun exportAllReceipts(): List<ReceiptWithShop>
+
+    suspend fun getMinReceiptTime(): String?
+
+    suspend fun getMaxReceiptTime(): String?
+
+    suspend fun getAllGroupList(): List<Group>
+
+    suspend fun exportGroupSpends(groupId: Long): List<SpentPeriod>
 
 }

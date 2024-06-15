@@ -26,6 +26,7 @@ import mne.seva.mnereceipt.domain.models.NameWithId
 import mne.seva.mnereceipt.domain.models.NameWithPriceId
 import mne.seva.mnereceipt.domain.models.NewGood
 import mne.seva.mnereceipt.domain.models.ShopWithPrice
+import mne.seva.mnereceipt.domain.models.SpentPeriod
 
 
 class DbReceiptStorage(private val shopDao: ShopDao,
@@ -292,6 +293,26 @@ class DbReceiptStorage(private val shopDao: ShopDao,
     @WorkerThread
     suspend fun getGroupCostListFromTo(dayFrom: Long, dayTo: Long): List<GroupCost> {
         return groupDao.getGroupCostListFromTo(dayFrom = dayFrom, dayTo = dayTo)
+    }
+
+    @WorkerThread
+    suspend fun getMinReceiptTime(): String? {
+        return receiptDao.getMinReceiptTime()
+    }
+
+    @WorkerThread
+    suspend fun getMaxReceiptTime(): String? {
+        return receiptDao.getMaxReceiptTime()
+    }
+
+    @WorkerThread
+    suspend fun getAllGroupList(): List<mne.seva.mnereceipt.domain.models.Group> {
+        return groupDao.getAllGroupsList()
+    }
+
+    @WorkerThread
+    suspend fun exportGroupSpends(groupId: Long): List<SpentPeriod> {
+        return groupDao.exportGroupSpends(groupId)
     }
 
 

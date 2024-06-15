@@ -14,6 +14,7 @@ import mne.seva.mnereceipt.domain.exceptions.ReceiptAlreadyExistException
 import mne.seva.mnereceipt.domain.models.DownloadedReceipt
 import mne.seva.mnereceipt.domain.models.ReceiptNumber
 import mne.seva.mnereceipt.domain.usecases.ArrayToCsvString
+import mne.seva.mnereceipt.domain.usecases.ExportGroupSpends
 import mne.seva.mnereceipt.domain.usecases.ExportReceiptsCsv
 import mne.seva.mnereceipt.domain.usecases.IsReceiptExistUseCase
 import mne.seva.mnereceipt.domain.usecases.ReceiptProvider
@@ -36,6 +37,7 @@ class MainViewModel(private val isReceiptExistUseCase : IsReceiptExistUseCase,
                     private val loadMNEReceipt: LoadMNEReceipt,
                     private val receiptProviderByLink: ReceiptProviderByLink,
                     private val exportReceiptsCsv: ExportReceiptsCsv,
+                    private val exportGroupSpends: ExportGroupSpends,
                     private val arrayToCsvString: ArrayToCsvString,
                     private val fileRepository: FileRepository
 ) : ViewModel() {
@@ -104,6 +106,15 @@ class MainViewModel(private val isReceiptExistUseCase : IsReceiptExistUseCase,
         viewModelScope.launch(Dispatchers.IO) {
             val receipts = exportReceiptsCsv.execute()
             val text = arrayToCsvString.execute(receipts)
+            fileRepository.writeTextToFileUri(uri, text)
+            _exported.emit(true)
+        }
+    }
+
+    fun saveGroupsToFile(uri: Uri) {
+        viewModelScope.launch(Dispatchers.IO) {
+            val res = exportGroupSpends.execute()
+            val text = arrayToCsvString.execute(res)
             fileRepository.writeTextToFileUri(uri, text)
             _exported.emit(true)
         }
